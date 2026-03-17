@@ -5,11 +5,13 @@ import RiskTab      from './components/RiskTab.jsx'
 import FinancialTab from './components/FinancialTab.jsx'
 import ChatTab      from './components/ChatTab.jsx'
 import styles       from './App.module.css'
+import FraudTab from './components/FraudTab.jsx'
 
 const TABS = [
   { id: 'upload',    label: '① Upload'   },
   { id: 'explain',   label: '② Explanation' },
   { id: 'risk',      label: '③ Risk'     },
+  { id: 'fraud', label: '④ Fraud' },
   { id: 'financial', label: '④ Financial' },
   { id: 'chat',      label: '⑤ AI Chat'  },
 ]
@@ -70,6 +72,7 @@ export default function App() {
           )}
           {activeTab === 'explain'   && <ExplainTab   data={results?.explain}   />}
           {activeTab === 'risk'      && <RiskTab      data={results?.risk}      />}
+          {activeTab === 'fraud' && <FraudTab data={results?.fraud} />}
           {activeTab === 'financial' && <FinancialTab data={results?.financial} />}
           {activeTab === 'chat'      && <ChatTab      contractText={contractText} />}
         </div>

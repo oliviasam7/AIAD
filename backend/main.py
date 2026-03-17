@@ -5,6 +5,7 @@ import anthropic
 import json
 import re
 from typing import Optional
+from ai_engine.fraud_detection import analyze as detect_fraud
 
 app = FastAPI(title="Contract Analyzer API")
 
@@ -152,6 +153,10 @@ Extract actual numbers from the contract. Compute realistic penalty/termination 
     if not data:
         data = {"scenarios": [], "summary": "Could not parse financial data."}
     return data
+
+@app.post("/analyze/fraud")
+def analyze_fraud(req: AnalyzeRequest):
+    return detect_fraud(req.contract_text)
 
 
 @app.post("/chat")

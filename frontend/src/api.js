@@ -14,3 +14,5 @@ export const analyzeFinancial = (contract_text) => api.post('/analyze/financial'
 
 export const sendChat = (contract_text, message, history) =>
   api.post('/chat', { contract_text, message, history })
+
+export const analyzeFraud = (contract_text) => api.post('/analyze/fraud', { contract_text })

@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import { uploadFile, analyzeExplain, analyzeRisk, analyzeFinancial } from '../api.js'
 import styles from './UploadTab.module.css'
+import { uploadFile, analyzeExplain, analyzeRisk, analyzeFraud, analyzeFinancial } from '../api.js'
 
 const SAMPLE = `SERVICE AGREEMENT
 
@@ -56,12 +56,12 @@ export default function UploadTab({ contractText, setContract, setResults, setLo
     setResults(null)
     try {
       setProgress('Extracting contract clauses...')
-      const [exp, risk, fin] = await Promise.all([
-        analyzeExplain(text).then(r => { setProgress('Scoring risks...'); return r }),
-        analyzeRisk(text),
-        analyzeFinancial(text),
+      const [exp, risk, fraud, fin] = await Promise.all([ analyzeExplain(text),
+      analyzeRisk(text),
+      analyzeFraud(text),
+      analyzeFinancial(text),
       ])
-      setResults({ explain: exp.data, risk: risk.data, financial: fin.data })
+      setResults({ explain: exp.data, risk: risk.data, fraud: fraud.data, financial: fin.data })
       setProgress('')
       onDone()
     } catch (e) {
