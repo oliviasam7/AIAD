@@ -21,3 +21,11 @@ Suggested improvements and differentiating features to make the system more user
 Discussed and refined key features such as contract explanation in simple language, risk detection, and multilingual support
 
 Participated in team discussions to define the overall project concept and direction
+
+Surya Priya 
+This week, I worked on understanding the project better.
+	•	I talked to some customers and collected the features they want in the project.
+	•	I discussed with my team about what we should do and how to proceed.
+	•	I went through different LMS systems to understand how they work.
+	•	Based on this, we got a clear idea about our project features and design.
+	
