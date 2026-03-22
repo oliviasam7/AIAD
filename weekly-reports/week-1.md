@@ -28,4 +28,9 @@ This week, I worked on understanding the project better.
 	•	I discussed with my team about what we should do and how to proceed.
 	•	I went through different LMS systems to understand how they work.
 	•	Based on this, we got a clear idea about our project features and design.
+
+	Olivia Sam
+	Tried analayzing and understanding patterns in problems that our potential users would face and would want our product to help with.
+	Went through different APIs that we could use in our project so that we can choose the best suitable one.
+	Created a basic prototype(only UI/UX) of what our project is going to do. 
 	
