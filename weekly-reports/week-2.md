@@ -2,7 +2,7 @@ Week 2
 Duration: 16/03/2026 - 22/03/2026
 
 Team Members & Work Done:
-Khushi.M (Team Lead)
+Khushi.M (Team Lead) SRN-R23EF111
 * Interacted with industry professionals to understand real-world requirements
 * Identified and refined the target customer segments for the solution
 * Gained better clarity on users who would benefit the most
@@ -12,7 +12,7 @@ Khushi.M (Team Lead)
 * Learned basic integration of AI into the system
 * Participated in team discussions to improve project direction
 
-Suryapriya
+Suryapriya SRN-R23EF086
 * Interacted with a QA Engineer to gather feedback on the project idea
 * Discussed with a business owner to understand real-world needs and usability
 * Engaged with a software engineering team lead to gain industry insights
@@ -22,13 +22,13 @@ Suryapriya
 * Recognized the importance of a simple and user-friendly system
 * Validated the project idea through real user feedback
 
-Olivia Sam
+Olivia Sam SRN-R23EF164
 * Worked on improving the prototype.
 * Made the interface easier for users to interact with.
 * Identified features users would appreciate.
 * Tried integrating AI that actually helps in simplifying contracts into our prototype.
 
-pavani
+pavani SRN-R23EF176
 *  Helped refine customer profiles and personas to strengthen product positioning.
 *  Supported the team in polishing the document for presentation readiness and stakeholder review.
 
