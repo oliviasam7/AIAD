@@ -21,3 +21,9 @@ Suryapriya
 * Gained understanding of demand in IT and business sectors
 * Recognized the importance of a simple and user-friendly system
 * Validated the project idea through real user feedback
+
+Olivia Sam
+* Worked on improving the prototype.
+* Made the interface easier for users to interact with.
+* Identified features users would appreciate.
+* Tried integrating AI that actually helps in simplifying contracts into our prototype.
