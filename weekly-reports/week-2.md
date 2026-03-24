@@ -27,3 +27,9 @@ Olivia Sam
 * Made the interface easier for users to interact with.
 * Identified features users would appreciate.
 * Tried integrating AI that actually helps in simplifying contracts into our prototype.
+
+pavani
+*  Helped refine customer profiles and personas to strengthen product positioning.
+*  Supported the team in polishing the document for presentation readiness and stakeholder review.
+
+
