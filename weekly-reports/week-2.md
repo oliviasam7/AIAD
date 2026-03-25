@@ -1,5 +1,5 @@
 Week 2
-Duration: 16/03/2026 - 22/03/2026
+Duration: 13/03/2026 - 20/03/2026
 
 Team Members & Work Done:
 Khushi.M (Team Lead) SRN-R23EF111
@@ -31,5 +31,17 @@ Olivia Sam SRN-R23EF164
 pavani SRN-R23EF176
 *  Helped refine customer profiles and personas to strengthen product positioning.
 *  Supported the team in polishing the document for presentation readiness and stakeholder review.
+
+Sujay SRN-R23EF115
+
+* Participated in team discussions and brainstorming sessions
+* Shared ideas related to the project
+* Helped in understanding user needs and perspective
+* Gave feedback on existing features
+* Explored and suggested new features for the system
+* Supported the team in small tasks
+* Contributed to improving the project through discussions
+
+
 
 
