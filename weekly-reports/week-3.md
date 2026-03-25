@@ -20,6 +20,24 @@ Khushi.M (Team Lead) SRN-R23EF111
 * Used all the feedback to refine and improve the project direction
 * Participated in team discussions to align the system with real user needs
 
+L Sujay Gowda (Developing  Lead) SRN-R23EF115
+
+* Conducted in-depth research to better understand the project scope and real-world application
+* Worked on initial project development, focusing on core idea implementation
+* Interacted with a CA auditor, Chetan, from Dashami Projects
+* Presented the project idea and received valuable guidance to improvise the system functionality
+* Discussed challenges related to understanding financial terms and risks in agreements
+* Gained insights on how contracts involve complex financial implications and decision-making
+* Met the owner of Octane Pits, promoter of the Indian National Autocross Championship
+* Understood their involvement in handling multiple contracts and agreements in operations
+* Identified the need for a system that can simplify contract analysis and reduce manual effort
+* Gathered practical insights on real-world usage of contracts in event and business operations
+* Learned that businesses require quick, clear, and reliable contract understanding tools
+* Collected suggestions on features like risk detection, financial clarity, and easy summaries
+* Documented all interactions and feedback in a structured format
+* Used the insights to refine the project direction and align with user needs
+* Participated in team discussions to integrate real-world feedback into system design
+
 Suryapriya SRN-R23EF086
 
 * Reviewed and analyzed feedback collected from customers
