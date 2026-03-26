@@ -28,9 +28,10 @@ Olivia Sam SRN-R23EF164
 * Identified features users would appreciate.
 * Tried integrating AI that actually helps in simplifying contracts into our prototype.
 
-pavani SRN-R23EF176
+Pavani SRN-R23EF176
 *  Helped refine customer profiles and personas to strengthen product positioning.
 *  Supported the team in polishing the document for presentation readiness and stakeholder review.
+*  Understood the customer requirements and  implemented in the documentation. 
 
 Sujay SRN-R23EF115
 
