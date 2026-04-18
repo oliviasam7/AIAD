@@ -1,0 +1,47 @@
+.shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 10;
+}
+.headerInner {
+  max-width: 900px; margin: 0 auto;
+  padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 12px; }
+.logoMark {
+  width: 38px; height: 38px; border-radius: var(--radius-sm);
+  background: var(--text); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.logoTitle { font-size: 15px; font-weight: 600; line-height: 1.2; }
+.logoSub   { font-size: 12px; color: var(--text3); }
+
+.pill {
+  font-size: 12px; font-weight: 500;
+  padding: 4px 12px; border-radius: 99px;
+}
+
+.main { max-width: 900px; margin: 0 auto; padding: 32px 24px; flex: 1; width: 100%; }
+
+.tabs {
+  display: flex; gap: 2px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+  overflow-x: auto;
+}
+.tab {
+  padding: 9px 16px; font-size: 13px; font-weight: 500;
+  background: none; border: none; color: var(--text3);
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  transition: all 0.15s; white-space: nowrap;
+}
+.tab:hover:not(.tabDisabled) { color: var(--text); }
+.tabActive { color: var(--text) !important; border-bottom-color: var(--text) !important; }
+.tabDisabled { opacity: 0.4; cursor: not-allowed; }
+
+.panel { }
