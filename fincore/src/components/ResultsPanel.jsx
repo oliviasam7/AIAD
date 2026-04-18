@@ -1,5 +1,7 @@
 import React from "react";
 import Results from "./Results";
+import Chatbot from "./Chatbot";
+import Translator from "./Translator";
 
 const styles = `
 .right-panel {
@@ -9,8 +11,6 @@ const styles = `
   overflow-y: auto; max-height: calc(100vh - 64px);
   position: sticky; top: 64px;
 }
-
-/* Empty state */
 .empty {
   flex: 1; display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center; gap: 16px; padding: 60px 20px;
@@ -24,8 +24,6 @@ const styles = `
   font-size: 13px; color: var(--muted); max-width: 260px;
   line-height: 1.6; font-family: 'JetBrains Mono', monospace;
 }
-
-/* Loading state */
 .loading {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: 24px; padding: 80px 20px; text-align: center;
@@ -44,7 +42,9 @@ const styles = `
   animation: spin .6s linear infinite reverse;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-.loading-title { font-family: 'Instrument Serif', serif; font-size: 22px; font-style: italic; }
+.loading-title {
+  font-family: 'Instrument Serif', serif; font-size: 22px; font-style: italic;
+}
 .loading-steps { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
 .loading-step {
   font-family: 'JetBrains Mono', monospace; font-size: 11px;
@@ -55,19 +55,23 @@ const styles = `
 .loading-step:nth-child(2) { animation-delay: 1s; }
 .loading-step:nth-child(3) { animation-delay: 2s; }
 @keyframes fadeIn { to { opacity: 1; } }
-
-/* Results label */
 .results-label {
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;
+  color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.divider {
+  height: 1px; background: var(--border);
+  margin: 32px 0;
 }
 `;
 
-export default function ResultsPanel({ status, result }) {
+export default function ResultsPanel({ status, result, contractText }) {
   return (
     <>
       <style>{styles}</style>
       <div className="right-panel">
+
         {status === "idle" && (
           <div className="empty">
             <div className="empty-glyph">⚖</div>
@@ -94,8 +98,15 @@ export default function ResultsPanel({ status, result }) {
           <>
             <div className="results-label">Analysis Results</div>
             <Results data={result} />
+
+            <div className="divider" />
+            <Chatbot contractText={contractText} />
+
+            <div className="divider" />
+            <Translator contractText={contractText} />
           </>
         )}
+
       </div>
     </>
   );
