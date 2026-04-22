@@ -8,8 +8,8 @@ export const uploadFile = (file) => {
   return api.post('/upload', fd)
 }
 
-export const analyzeExplain  = (contract_text) => api.post('/analyze/explain',   { contract_text })
-export const analyzeRisk      = (contract_text) => api.post('/analyze/risk',      { contract_text })
+export const analyzeExplain = (contract_text) => api.post('/analyze/explain', { contract_text })
+export const analyzeRisk = (contract_text) => api.post('/analyze/risk', { contract_text })
 export const analyzeFinancial = (contract_text) => api.post('/analyze/financial', { contract_text })
 
 export const sendChat = (contract_text, message, history) =>
