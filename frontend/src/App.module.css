@@ -760,3 +760,48 @@
 .themeBtnLabel {
   font-size: 11px;
 }
+
+.avatarChip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 12px 5px 5px;
+  background: var(--surface2);
+  border: 1px solid var(--border2);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.avatarChip:hover {
+  background: var(--surface3);
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #000;
+  flex-shrink: 0;
+  font-family: var(--mono);
+}
+
+.avatarName {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.avatarEmail {
+  font-size: 10px;
+  color: var(--muted2);
+  font-family: var(--mono);
+  line-height: 1.2;
+}

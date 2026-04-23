@@ -7,6 +7,7 @@ import ChatTab from './components/ChatTab.jsx'
 import FraudTab from './components/FraudTab.jsx'
 import PlansSection from './components/PlansSection.jsx'
 import styles from './App.module.css'
+import Login from './components/Login.jsx'
 
 const ANALYSIS_TABS = [
   { id: 'upload', label: '① Upload' },
@@ -33,6 +34,16 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const plansRef = useRef()
   const [themeMode, setThemeMode] = useState(() => localStorage.getItem('fc-theme') || 'dark')
+  const [user, setUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('fc-user')) } catch { return null }
+  })
+  const isLoggedIn = !!user && localStorage.getItem('fc-logged-in') === 'true'
+  function handleLogin(userInfo) { setUser(userInfo) }
+  function handleLogout() {
+    localStorage.removeItem('fc-logged-in')
+    localStorage.removeItem('fc-user')
+    setUser(null)
+  }
 
   // Resolve 'system' to actual dark/light
   function resolveTheme(mode) {
@@ -91,11 +102,32 @@ export default function App() {
   ]
 
   const pageMeta = {
-    dashboard: { title: 'Dashboard', sub: 'Sunday, 19 April 2026' },
+    dashboard: {
+      title: 'Dashboard',
+      sub: (() => {
+        const now = new Date()
+        return now.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })
+      })()
+    },
     analysis: { title: 'New Analysis', sub: 'Upload or paste a contract' },
     billing: { title: 'Billing & Plans', sub: 'Manage your subscription' },
   }[activeNav] || { title: 'FinCore', sub: '' }
 
+  function getInitials(userInfo) {
+    if (!userInfo) return 'FC'
+    const id = userInfo.email || userInfo.phone || ''
+    if (userInfo.email) {
+      const name = userInfo.email.split('@')[0] // e.g. "surapriya"
+      const parts = name.split(/[._-]/)
+      if (parts.length >= 2) {
+        return (parts[0][0] + parts[1][0]).toUpperCase() // "su" + "pr" → "SP"
+      }
+      return name.substring(0, 2).toUpperCase()           // "surapriya" → "SU"
+    }
+    return id.substring(0, 2).toUpperCase()
+  }
+
+  if (!isLoggedIn) return <Login onLogin={handleLogin} />
   return (
     <div className={styles.shell}>
 
@@ -172,7 +204,20 @@ export default function App() {
             <button className={styles.tbBtn}>Export</button>
             <button className={`${styles.tbBtn} ${styles.tbBtnPrimary}`} onClick={goAnalysis}>+ New Analysis</button>
             <div className={styles.notif}>🔔<div className={styles.notifDot} /></div>
-            <div className={styles.avatar}>RK</div>
+            <button className={styles.tbBtn} onClick={handleLogout}>Sign out</button>
+            <div className={styles.avatarChip}>
+              <div className={styles.avatar}>
+                {getInitials(user)}
+              </div>
+              <div className={styles.avatarInfo}>
+                <div className={styles.avatarName}>
+                  {user?.email?.split('@')[0] || user?.phone || 'User'}
+                </div>
+                <div className={styles.avatarEmail}>
+                  {user?.email || user?.phone || ''}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
