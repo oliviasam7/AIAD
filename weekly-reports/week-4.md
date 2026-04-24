@@ -45,3 +45,11 @@ Developed a clean and visually appealing Upload Page UI
 Maintained a consistent design theme across the application
 Built a well-structured and intuitive subscription plans section
 Prepared the UI for seamless future functionality integration
+
+Olivia Sam
+Worked on improving the UI of our website
+Added a few animations to the page
+Made sure the chatbot and multilingual features were working based on the given contract
+Working on adding a payment page to buy premium versions of our product
+Added a Login page and created a jwt backend to store user details
+
