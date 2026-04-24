@@ -6,6 +6,7 @@ import FinancialTab from './components/FinancialTab.jsx'
 import ChatTab from './components/ChatTab.jsx'
 import FraudTab from './components/FraudTab.jsx'
 import PlansSection from './components/PlansSection.jsx'
+import TranslateTab from './components/TranslateTab.jsx'
 import styles from './App.module.css'
 import Login from './components/Login.jsx'
 
@@ -111,6 +112,7 @@ export default function App() {
     },
     analysis: { title: 'New Analysis', sub: 'Upload or paste a contract' },
     billing: { title: 'Billing & Plans', sub: 'Manage your subscription' },
+    trans: { title: 'Translations', sub: 'Translate contract summaries into Indian languages' },
   }[activeNav] || { title: 'FinCore', sub: '' }
 
   function getInitials(userInfo) {
@@ -369,8 +371,15 @@ export default function App() {
           <div className={styles.content}><PlansSection /></div>
         )}
 
+        {/* ── TRANSLATIONS ── */}
+        {activeNav === 'trans' && (
+          <div className={styles.content}>
+            <TranslateTab contractText={contractText} />
+          </div>
+        )}
+
         {/* ── OTHER PAGES ── */}
-        {!['dashboard', 'analysis', 'billing'].includes(activeNav) && (
+        {!['dashboard', 'analysis', 'billing', 'trans'].includes(activeNav) && (
           <div className={styles.content}>
             <div className={styles.emptyState}>
               <div className={styles.emptyGlyph}>🚧</div>

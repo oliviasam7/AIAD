@@ -1,0 +1,206 @@
+.wrap {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.countBadge {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text3);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 99px;
+}
+
+/* Empty state */
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.emptyGlyph {
+  font-size: 48px;
+  opacity: 0.15;
+  filter: grayscale(1);
+}
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text2);
+}
+
+.emptySub {
+  font-size: 13px;
+  color: var(--text3);
+  font-family: var(--mono);
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+/* Table */
+.tableWrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead tr {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  padding: 11px 16px;
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text3);
+  text-align: left;
+  font-weight: 500;
+}
+
+.row {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: var(--surface2);
+}
+
+.table td {
+  padding: 13px 16px;
+  vertical-align: middle;
+}
+
+/* Contract name cell */
+.contractName {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.docIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.nameText {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nameLen {
+  font-size: 10px;
+  color: var(--text3);
+  font-family: var(--mono);
+  margin-top: 2px;
+}
+
+/* Date */
+.dateCell {
+  font-size: 12px;
+  color: var(--text2);
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+/* Score */
+.scoreCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.scoreBadge {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--mono);
+  padding: 3px 9px;
+  border-radius: 6px;
+  min-width: 34px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.scoreBar {
+  width: 60px;
+  height: 4px;
+  background: var(--border2);
+  border-radius: 2px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.scoreBarFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* Badges */
+.levelBadge,
+.fraudBadge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+/* Action button */
+.viewBtn {
+  padding: 7px 16px;
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text2);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  font-family: var(--font);
+}
+
+.viewBtn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
