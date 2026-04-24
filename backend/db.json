@@ -24,8 +24,17 @@
       "email": "123@gmail.com",
       "password": "$2a$10$qnGV.SP8/tSpp5mjaaywBOL56pZsIAbEXIO6n9GI3kaI1EJ5LUCSS",
       "plan": "free",
-      "analysisCount": 2,
+      "analysisCount": 3,
       "createdAt": "2026-04-24T09:36:25.485Z"
+    },
+    {
+      "id": "343ef3d8-0b48-4dfd-9259-e8b41045497b",
+      "name": "abc",
+      "email": "abcd@gmail.com",
+      "password": "$2a$10$9GL3DVW3yvW2plrdxF5RbuphdB5DBl6ZtqTj4ZiVkPaUyt9G0SQ7C",
+      "plan": "free",
+      "analysisCount": 1,
+      "createdAt": "2026-04-24T14:45:40.500Z"
     }
   ]
 }
