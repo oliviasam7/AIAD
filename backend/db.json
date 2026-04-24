@@ -1,0 +1,85 @@
+{
+  "users": [
+    {
+      "id": "9410652f-7476-458d-935c-498d5c995031",
+      "name": "olivia",
+      "email": "olivia@gmail.com",
+      "password": "$2a$10$tBe8dQhZToTxWpeMDDyyBO7fILPFKzxHMyzwrJgieEMGPR5RVQNQS",
+      "plan": "pro",
+      "analysisCount": 2,
+      "createdAt": "2026-04-24T07:52:10.040Z"
+    },
+    {
+      "id": "275bdf57-e05b-425f-acfe-5cf42725940b",
+      "name": "Olivia",
+      "email": "abc@gmail.com",
+      "password": "$2a$10$bMDnQ2CzjoC4LlrOQE669uLC2meTKMU7uRbS2GnL0iQODLYU94iLq",
+      "plan": "free",
+      "analysisCount": 2,
+      "createdAt": "2026-04-24T08:07:28.812Z"
+    },
+    {
+      "id": "58e0d4b1-efc7-4273-aee7-38f562653ab6",
+      "name": "olivia",
+      "email": "123@gmail.com",
+      "password": "$2a$10$qnGV.SP8/tSpp5mjaaywBOL56pZsIAbEXIO6n9GI3kaI1EJ5LUCSS",
+      "plan": "free",
+      "analysisCount": 2,
+      "createdAt": "2026-04-24T09:36:25.485Z"
+    },
+    {
+      "id": "aa654701-e14a-416c-9a15-a0bd0570fe0f",
+      "name": "Test User",
+      "email": "testuser+002@example.com",
+      "password": "$2a$10$1UdlSEo46fIo2GmEn.oAV.omUU.lW9wpcvT7NA0VG.7chF9TMM/G6",
+      "plan": "free",
+      "analysisCount": 0,
+      "createdAt": "2026-04-24T14:02:47.661Z"
+    },
+    {
+      "id": "0819fbd1-7fa1-408b-a34e-8e41881d7b0b",
+      "name": "suj",
+      "email": "23010800370@reva.edu.in",
+      "password": "$2a$10$QtEPbpjhwqeBCcnP.4HaW.V4/rz7lxBOCJTHhqZ1J1RoTdJomrOWa",
+      "plan": "free",
+      "analysisCount": 3,
+      "createdAt": "2026-04-24T14:08:17.305Z"
+    },
+    {
+      "id": "54b68bb9-122e-4310-8674-d64c5f7bc679",
+      "name": "Dev Tester",
+      "email": "devtester+1@example.com",
+      "password": "$2a$10$T67aT9sEYPiS4GdzsRBX6OhQcDxy35RBypU0tty.W4V/.kvkAEsDm",
+      "plan": "free",
+      "analysisCount": 1,
+      "createdAt": "2026-04-24T14:45:34.367Z"
+    },
+    {
+      "id": "067632b8-dafa-47a9-a2a4-82b45066913f",
+      "name": "sujay",
+      "email": "sxjxygowda27@gmail.com",
+      "password": "$2a$10$0QpjEP23AnLr3sal6U/mMun55LacpZcZOqhBl/AxD3vB8Jb6kOy42",
+      "plan": "free",
+      "analysisCount": 3,
+      "createdAt": "2026-04-24T15:17:07.028Z"
+    },
+    {
+      "id": "5761b84d-cc01-4b22-a592-bb15a4d869c7",
+      "name": "dp",
+      "email": "deepakraigonda1020@gmail.com",
+      "password": "$2a$10$RRz3XtCBQEGSS3oGyqT9C.m7Jgz3KFYsFpCcfvZIELW/oCwuVXDGG",
+      "plan": "free",
+      "analysisCount": 3,
+      "createdAt": "2026-04-24T15:37:49.397Z"
+    },
+    {
+      "id": "79d2f57e-e530-42f8-9d72-237cb1a1785d",
+      "name": "Gagan",
+      "email": "gaganch17210@gmail.com",
+      "password": "$2a$10$8w81PiRnEI1ZOqIbow3vEueDzBtnhnpa9ugdFiq04A255TNLCEloq",
+      "plan": "free",
+      "analysisCount": 1,
+      "createdAt": "2026-04-24T17:16:40.913Z"
+    }
+  ]
+}

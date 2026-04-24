@@ -55,11 +55,23 @@ const styles = `
 .loading-step:nth-child(2) { animation-delay: 1s; }
 .loading-step:nth-child(3) { animation-delay: 2s; }
 @keyframes fadeIn { to { opacity: 1; } }
+.results-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
 .results-label {
   font-family: 'JetBrains Mono', monospace; font-size: 10px;
   color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
-  margin-bottom: 20px;
 }
+.download-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #000; border: none; padding: 8px 20px;
+  font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 800;
+  cursor: pointer; letter-spacing: 0.5px; transition: opacity .2s;
+  clip-path: polygon(8px 0%,100% 0%,100% calc(100% - 8px),calc(100% - 8px) 100%,0% 100%,0% 8px);
+}
+.download-btn:hover { opacity: 0.85; }
+.download-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .divider {
   height: 1px; background: var(--border);
   margin: 32px 0;
@@ -67,6 +79,17 @@ const styles = `
 `;
 
 export default function ResultsPanel({ status, result, contractText }) {
+
+  async function handleDownload() {
+    try {
+      const { downloadReport } = await import("../utils/downloadReport");
+      await downloadReport(result);
+    } catch (err) {
+      console.error("Download failed:", err);
+      alert("Download failed: " + err.message);
+    }
+  }
+
   return (
     <>
       <style>{styles}</style>
@@ -96,7 +119,13 @@ export default function ResultsPanel({ status, result, contractText }) {
 
         {status === "done" && result && (
           <>
-            <div className="results-label">Analysis Results</div>
+            <div className="results-header">
+              <div className="results-label">Analysis Results</div>
+              <button className="download-btn" onClick={handleDownload}>
+                ↓ Download Report
+              </button>
+            </div>
+
             <Results data={result} />
 
             <div className="divider" />

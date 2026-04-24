@@ -20,7 +20,7 @@ export default function Footer() {
       <style>{styles}</style>
       <footer className="footer">
         <div className="footer-left">
-          © 2025 <span>FinCore</span> · Contract Intelligence Platform
+          © 2026 <span>FinCore</span> · Contract Intelligence Platform
         </div>
         <div className="footer-disclaimer">
           AI analysis is for informational purposes only and does not constitute
