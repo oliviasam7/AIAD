@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "af0fa94e-33ff-400d-8cda-0686cb18fbfa",
+      "name": "olivia",
+      "email": "olivia@gmail.com",
+      "password": "$2a$10$GZVt98ITWWydbh54OnEzCem2XE.Ln3P6d8G/ZfO8FgBR.Lpb2xLd6",
+      "plan": "enterprise",
+      "analysisCount": 6,
+      "createdAt": "2026-04-23T07:22:22.261Z"
+    }
+  ]
+}
