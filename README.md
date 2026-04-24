@@ -19,6 +19,7 @@ Upload any contract and get an instant AI-powered breakdown of risks, clauses, a
 ---
 
 ## Project Structure
+
 FinCore-ia2/
 │
 ├── backend/
