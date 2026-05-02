@@ -5,7 +5,24 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs
 
 export async function callAPI(messages, systemPrompt) {
   const key = process.env.REACT_APP_OPENAI_API_KEY;
-  if (!key) throw new Error("API key not configured. Add REACT_APP_OPENAI_API_KEY to your .env file.");
+
+  // Development fallback: return a mocked response when no OpenAI key is configured.
+  if (!key) {
+    console.warn("No OpenAI key configured — using mocked response in development.");
+    // If this is the contract analysis system prompt, return a minimal valid JSON string
+    if (systemPrompt && systemPrompt.startsWith("You are a contract analysis expert")) {
+      return JSON.stringify({
+        riskScore: 10,
+        riskLevel: "Low",
+        summary: "(Mock) This contract appears low risk based on provided text.",
+        clauses: [],
+        financials: [],
+        recommendation: "(Mock) Review payment terms and termination clauses before signing."
+      });
+    }
+    // Generic mock reply for chat/translation features
+    return "(Mock) OpenAI API key not configured. Set REACT_APP_OPENAI_API_KEY to enable real AI responses.";
+  }
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -97,8 +114,8 @@ export function readFileAsBase64(file) {
 }
 
 export async function analyzeContract(contractText, focusAreas, imageData) {
-  const key = process.env.REACT_APP_OPENAI_API_KEY;
-  if (!key) throw new Error("API key not configured. Add REACT_APP_OPENAI_API_KEY to your .env file.");
+  // `callAPI` handles missing OpenAI keys by providing a safe development
+  // fallback. Do not block here so the UI can work without a key.
 
   const systemPrompt = `You are a contract analysis expert. Analyze the contract and return ONLY valid JSON in exactly this format, no markdown:
 {

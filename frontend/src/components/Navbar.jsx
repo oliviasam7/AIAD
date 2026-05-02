@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 
 const styles = `
@@ -97,11 +97,12 @@ const styles = `
   color: var(--accent); background: rgba(0,212,255,0.05);
   font-family: 'JetBrains Mono', monospace;
 }
+.theme-toggle { padding: 6px 10px; font-size: 14px; }
 `;
 
 export default function Navbar({ onPricing, onLogin, setPage }) {
   const { user, logout } = useAuth();
-
+  
   return (
     <>
       <style>{styles}</style>
@@ -129,6 +130,7 @@ export default function Navbar({ onPricing, onLogin, setPage }) {
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           <span className="nav-tag">AI-Powered</span>
+          <ThemeToggle />
           {user ? (
             <div className="nav-user">
               <span>{user.name}</span>
@@ -141,5 +143,24 @@ export default function Navbar({ onPricing, onLogin, setPage }) {
         </div>
       </nav>
     </>
+  );
+}
+
+function ThemeToggle() {
+  const [theme, setTheme] = useState(() => localStorage.getItem("fc_theme") || "dark");
+
+  useEffect(() => {
+    if (theme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    localStorage.setItem("fc_theme", theme);
+  }, [theme]);
+
+  return (
+    <button className="nav-btn outline theme-toggle" onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}>
+      {theme === "dark" ? "☀️" : "🌙"}
+    </button>
   );
 }

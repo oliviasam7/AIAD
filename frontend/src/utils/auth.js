@@ -1,4 +1,4 @@
-const BASE = "http://localhost:4001/api";
+export const BASE = process.env.REACT_APP_API_BASE || "http://localhost:4001/api";
 
 export async function apiRegister(name, email, password) {
   const res = await fetch(`${BASE}/register`, {

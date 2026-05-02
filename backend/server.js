@@ -8,14 +8,23 @@ const crypto = require("crypto");
 const fetch = require("node-fetch");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const rateLimit = require("express-rate-limit");
+const path = require("path");
 
 const adapter = new FileSync("db.json");
 const db = low(adapter);
 db.defaults({ users: [] }).write();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
+
+// Security and parsing
+app.use(helmet());
+app.use(morgan("tiny"));
+const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || "http://localhost:3000";
+app.use(cors({ origin: FRONTEND_ORIGIN }));
+app.use(express.json({ limit: "1mb" }));
 
 const JWT_SECRET = process.env.JWT_SECRET || "fincore_dev_secret_change_me";
 const RZP_KEY_ID = process.env.RAZORPAY_KEY_ID;
@@ -35,6 +44,14 @@ function auth(req, res, next) {
     res.status(401).json({ error: "Invalid token" });
   }
 }
+
+// Rate limiter for AI usage to prevent abuse
+const aiLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 20, // limit each IP to 20 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 app.post("/api/register", async (req, res) => {
   const { email, password, name } = req.body;
@@ -127,5 +144,52 @@ app.post("/api/payment/verify", auth, (req, res) => {
   const user = db.get("users").find({ id: req.user.id }).value();
   res.json({ success: true, plan: user.plan });
 });
+
+// Proxy endpoint for OpenAI — keeps the API key on the server
+app.post("/api/ai", aiLimiter, async (req, res) => {
+  const OPENAI_KEY = process.env.OPENAI_API_KEY;
+  if (!OPENAI_KEY) return res.status(500).json({ error: "OpenAI not configured on server" });
+
+  const { messages, systemPrompt, model, max_tokens } = req.body || {};
+  const reqMessages = [];
+  if (systemPrompt) reqMessages.push({ role: "system", content: systemPrompt });
+  if (Array.isArray(messages)) reqMessages.push(...messages);
+
+  try {
+    const openRes = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${OPENAI_KEY}`,
+      },
+      body: JSON.stringify({
+        model: model || "gpt-4o",
+        messages: reqMessages,
+        max_tokens: max_tokens || 1500,
+      }),
+    });
+
+    const data = await openRes.json();
+    if (!openRes.ok) {
+      console.error("OpenAI error:", data);
+      return res.status(openRes.status || 500).json({ error: data.error?.message || "OpenAI error", raw: data });
+    }
+
+    const content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+    return res.json({ content, raw: data });
+  } catch (err) {
+    console.error("AI proxy failed:", err);
+    return res.status(500).json({ error: err.message });
+  }
+});
+
+// Serve frontend build in production
+if (process.env.NODE_ENV === "production") {
+  const clientBuildPath = path.join(__dirname, "..", "frontend", "build");
+  app.use(express.static(clientBuildPath));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(clientBuildPath, "index.html"));
+  });
+}
 
 app.listen(PORT, () => console.log(`FinCore backend running on port ${PORT}`));
